@@ -18,6 +18,6 @@ conversion from lgcpgrid to list
 Method to convert an lgcpgrid object into a list of matrices.
 }
 \seealso{
-\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{print.lgcpgrid}, 
+\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{print.lgcpgrid},
 \link{summary.lgcpgrid}, \link{quantile.lgcpgrid}, \link{image.lgcpgrid}, \link{plot.lgcpgrid}
 }

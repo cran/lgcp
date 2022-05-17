@@ -26,7 +26,7 @@ a plot
 Plots \code{lgcpAutocorr} objects: output from \code{autocorr}
 }
 \examples{
-\dontrun{ac <- autocorr(lg,qt=c(1,2,3))} 
+\dontrun{ac <- autocorr(lg,qt=c(1,2,3))}
                           # assumes that lg has class lgcpPredict
 \dontrun{plot(ac)}
 }

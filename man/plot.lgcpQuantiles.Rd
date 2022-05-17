@@ -27,7 +27,7 @@ This is a wrapper function for image.lgcpgrid
 Plots \code{lgcpQuantiles} objects: output from \code{quantiles.lgcpPredict}
 }
 \examples{
-\dontrun{qtiles <- quantile(lg,qt=c(0.5,0.75,0.9),fun=exp)} 
+\dontrun{qtiles <- quantile(lg,qt=c(0.5,0.75,0.9),fun=exp)}
                           # assumed that lg has class lgcpPredict
 \dontrun{plot(qtiles)}
 }

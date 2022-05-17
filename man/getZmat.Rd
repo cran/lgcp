@@ -52,7 +52,7 @@ lgcpPredictAggregateSpatialPlusPars. This function can also be used to help cons
 lgcpPredictMultitypeSpatialPlusPars, but these functions require a list of such objects: see the vignette "Bayesian_lgcp" for examples.
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp},
+\link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

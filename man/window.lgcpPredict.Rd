@@ -16,7 +16,7 @@ returns the observation window used durign computation
 }
 \description{
 Accessor function returning the observation window from objects of class \code{lgcpPredict}. Note that for
-computational purposes, the window of an \code{stppp} object will be extended to accommodate the requirement that 
+computational purposes, the window of an \code{stppp} object will be extended to accommodate the requirement that
 the dimensions must be powers of 2. The function \code{window.lgcpPredict} returns the extended window.
 }
 \seealso{

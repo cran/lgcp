@@ -36,7 +36,7 @@
 extracted array
 }
 \description{
-\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. \code{extract.lgcpPredict}  
+\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. \code{extract.lgcpPredict}
 extracts chunks of data that have been dumped to disk. The subset of data can either be specified using an (x,y,t,s) box or (window,t,s) region
 where window is a polygonal subregion of interest.
 }

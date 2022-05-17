@@ -37,7 +37,7 @@ Note that if there is an intercept in the spatial part of the model e.g., X ~ va
 the intercept should be removed i.e., t ~ tvar1 + tvar2 - 1
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+\link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

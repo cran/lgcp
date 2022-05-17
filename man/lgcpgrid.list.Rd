@@ -31,6 +31,6 @@ Creates an lgcpgrid object from a list object plus some optional coordinates. No
 and that each matrix should have the same dimension.
 }
 \seealso{
-\link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid}, 
+\link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid},
 \link{summary.lgcpgrid}, \link{quantile.lgcpgrid}, \link{image.lgcpgrid}, \link{plot.lgcpgrid}
 }

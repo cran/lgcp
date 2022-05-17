@@ -15,7 +15,7 @@
 returns the cell-wise variance of Y computed via Monte Carlo.
 }
 \description{
-This is an accessor function for objects of class \code{lgcpPredict} and returns the variance of the 
+This is an accessor function for objects of class \code{lgcpPredict} and returns the variance of the
 field Y as an lgcpgrid object.
 }
 \seealso{

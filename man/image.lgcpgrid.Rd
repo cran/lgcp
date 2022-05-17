@@ -22,6 +22,6 @@ grid plotting
 Produce an image plot of an lgcpgrid object.
 }
 \seealso{
-\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid}, 
+\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid},
 \link{summary.lgcpgrid}, \link{quantile.lgcpgrid}, \link{plot.lgcpgrid}
 }

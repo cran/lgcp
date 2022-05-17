@@ -39,8 +39,8 @@
 an array, the [,,i]th slice being the grid of cell-wise quantiles, qt[i], of fun(Y), where Y is the MCMC output dumped to disk.
 }
 \description{
-\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. The routine \code{quantile.lgcpPredict} 
-computes quantiles of functions of Y. For example, to get cell-wise quantiles of exceedance probabilities, set \code{fun=exp}. 
+\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. The routine \code{quantile.lgcpPredict}
+computes quantiles of functions of Y. For example, to get cell-wise quantiles of exceedance probabilities, set \code{fun=exp}.
 Since computign the quantiles is an expensive operation, the option to output the quantiles on a subregion of interest is also provided (by
 setting the argument \code{inWindow}, which has a sensible default).
 }

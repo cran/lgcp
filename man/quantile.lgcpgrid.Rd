@@ -19,6 +19,6 @@ Quantile method for lgcp objects. This just applies the quantile function to eac
 the elements of x$grid
 }
 \seealso{
-\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid}, 
+\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid},
 \link{summary.lgcpgrid}, \link{image.lgcpgrid}, \link{plot.lgcpgrid}
 }

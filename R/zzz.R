@@ -1,6 +1,6 @@
 ##' .onAttach function
 ##'
-##' A function to print a welcome message on loading package  
+##' A function to print a welcome message on loading package
 ##'
 ##' @param libname libname argument
 ##' @param pkgname pkgname argument
@@ -14,6 +14,6 @@ Type '?lgcp' for details.\n
 Type 'lgcpvignette()' to view the basic package vignette.\n
 Type 'lgcpbayes()' to view the Bayesian package vignette.\n
 Type 'citation(\"lgcp\")' to view the citation for this package.\n
-Please see the lgcp package NEWS file for latest additions, changes and bug fixes.)", appendLF=T)
+Please see the lgcp package NEWS file for latest additions, changes and bug fixes.\n
+Note, RandomFields covariance functions are currently unavailable.", appendLF=T)
 }
-

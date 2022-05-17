@@ -19,6 +19,6 @@ Summary method for lgcp objects. This just applies the summary function to each
 of the elements of object$grid.
 }
 \seealso{
-\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid}, 
+\link{lgcpgrid.list}, \link{lgcpgrid.array}, \link{as.list.lgcpgrid}, \link{print.lgcpgrid},
 \link{quantile.lgcpgrid}, \link{image.lgcpgrid}, \link{plot.lgcpgrid}
 }

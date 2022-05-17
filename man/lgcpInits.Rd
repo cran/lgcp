@@ -31,7 +31,7 @@ A secondary function of specifying initial values is to help design the MCMC pro
 \dontrun{INITS <- lgcpInits(etainit=log(c(sqrt(1.5),275)), betainit=NULL)}
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+\link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{CovFunction},
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

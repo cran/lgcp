@@ -310,7 +310,7 @@ cov.interp.fft <- function(formula,W,regionalcovariates=NULL,pixelcovariates=NUL
 ##' @param ext the amount by which to extend the observation window in forming the FFT grid, default is 2. In the case that the point pattern has long range spatial correlation, this may need to be increased.
 ##' @param inclusion criterion for cells being included into observation window. Either 'touching' or 'centroid'. The former, the default, includes all cells that touch the observation window, the latter includes all cells whose centroids are inside the observation window.
 ##' @return an object of class lgcppolyol, which can then be fed into the function getZmat.
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -472,7 +472,7 @@ interptypes <- function(){
 ##' @param vars character vector giving name of variables
 ##' @param value an interpolation type, posssible options are given by typing interptypes(), see ?interptypes
 ##' @return assigns an interpolation type to a variable
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -522,7 +522,7 @@ assigninterp <- function(df,vars,value){
 ##'
 ##' @param df a data frame
 ##' @return the data frame, but with attributes describing the interpolation method for each variable
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}

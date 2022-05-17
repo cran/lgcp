@@ -64,7 +64,7 @@
 ##'     \item Wood ATA, Chan G (1994). Simulation of Stationary Gaussian Processes in [0,1]d. Journal of Computational and Graphical Statistics, 3(4), 409-432.
 ##'     \item Moller J, Syversveen AR, Waagepetersen RP (1998). Log Gaussian Cox Processes. Scandinavian Journal of Statistics, 25(3), 451-482.
 ##' }
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars},
@@ -96,7 +96,7 @@ lgcpPredictSpatialPlusPars <- function( formula,
 	    sd$window <- as.polygonal(sd$window)
 	}
 
-	if(class(model.priors)!="lgcpPrior"){
+	if(!inherits(model.priors,"lgcpPrior")){
 	    stop("Argument model.priors must be of class lgcpPrior, see ?lgcpPrior")
 	}
 
@@ -173,17 +173,17 @@ lgcpPredictSpatialPlusPars <- function( formula,
                                 Zm=matrix(1,100,100))
     }
 
-	if(!any(class(poisson.offset)=="spatialAtRisk")){
+	if(!inherits(poisson.offset,"spatialAtRisk")){
         spatial <- spatialAtRisk(poisson.offset)
     }
     else{
         spatial <- poisson.offset
     }
 
-    if(any(class(spatial)=="fromXYZ")){
+    if(inherits(spatial,"fromXYZ")){
         spatial$Zm <- spatial$Zm*attr(spatial,"NC") # put back in 'normalising constant' so that spatialAtRisk acts as an offset (ie it no longer integrates to 1 over the study region.)
     }
-    if(any(class(spatial)=="fromSPDF")){
+    if(inherits(spatial,"fromSPDF")){
         spatial$atrisk <- spatial$atrisk*attr(spatial,"NC")
         spatial$spdf$atrisk <- spatial$atrisk
     }
@@ -254,7 +254,7 @@ lgcpPredictSpatialPlusPars <- function( formula,
 
 	# issue warning if dumping information to disc
 	nsamp <- floor((mLoop$N-mLoop$burnin)/mLoop$thin)
-	if (!is.null(output.control$gridfunction) & class(output.control$gridfunction)[1]=="dump2dir"){
+	if (!is.null(output.control$gridfunction) & inherits(output.control$gridfunction[1],"dump2dir")){
     	cat("WARNING: disk space required for saving is approximately ",round(nsamp*object.size(array(runif((M)*(N)),dim=c((M),(N))))/1024^2,2)," Mb, ",sep="")
         if (!output.control$gridfunction$forceSave){
             m <- menu(c("yes","no"),title="continue?")
@@ -504,12 +504,12 @@ MALAlgcpSpatial.PlusPars <- function(   mcmcloop,
     etaCovMat <- try(additional_scaleconst*solve((-1)*GPdrv2(GP=GP,prior=model.priors,Z=Z,Zt=Zt,eta=etaval,beta=betaval,nis=nis,cellarea=cellarea,spatial=spatialvals,gradtrunc=Inf,fftgrid=fftgrid,covfunction=spatial.covmodel,d=d,eps=1e-6)$hess)) #mean(diff(mcens[1:2]),diff(ncens[1:2]))/100)$hess) # eps=mean(diff(mcens[1:2]),diff(ncens[1:2]))/100 is approx 1/100 cellwidth
     etaCovMattest <- FALSE
 
-    #browser()   
+    #browser()
 
-    if(class(etaCovMat)!="try-error"){
+    if(!inherits(etaCovMat,"try-error")){
         etaCovMattest <- !all(eigen(etaCovMat)$values>0)
     }
-    if(class(etaCovMat)=="try-error" | etaCovMattest){
+    if(!inherits(etaCovMat,"try-error") | etaCovMattest){
 
         cat("Computing posterior variance w.r.to eta via finite differencing failed, trying global alternative ...\n")
         lensq <- 10
@@ -521,7 +521,7 @@ MALAlgcpSpatial.PlusPars <- function(   mcmcloop,
                 cpA <- CovParameters(list(sigma=exp(sqsigma[i]),phi=exp(sqphi[j])))
                 gpA <- GPrealisation(gamma=GP$gamma,fftgrid=fftgrid,covFunction=spatial.covmodel,covParameters=cpA,d=d)
                 matent <- try(target.and.grad.spatialPlusPars(GP=gpA,prior=model.priors,Z=Z,Zt=Zt,eta=c(sqsigma[i],sqphi[j]),beta=betaval,nis=nis,cellarea=cellarea,spatial=spatialvals,gradtrunc=Inf)$logtarget)
-                if(class(matent)!="try-error"){
+                if(!inherits(matent,"try-error")){
                     ltarmat[i,j] <- matent
                 }
             }
@@ -538,10 +538,10 @@ MALAlgcpSpatial.PlusPars <- function(   mcmcloop,
         try(coef <- coefficients(tarmod))
         try(etaCovMat <- additional_scaleconst*solve((-1)*matrix(c(2*coef[2],coef[6],coef[6],2*coef[4]),2,2)))
         etaCovMattest2 <- FALSE
-        if(class(etaCovMat)!="try-error"){
+        if(!inherits(etaCovMat,"try-error")){
             etaCovMattest2 <- !all(eigen(etaCovMat)$values>0)
         }
-        if(class(etaCovMat)=="try-error" | etaCovMattest2){
+        if(inherits(etaCovMat,"try-error") | etaCovMattest2){
             warning("Cannot find good approximation of posterior variance w.r.to eta: using the following variance instead:",immediate.=TRUE)
             etaCovMat <- (1/100)*model.priors$etaprior$variance
         }
@@ -830,7 +830,7 @@ lgcpSimSpatialCovariates <- function(   formula,
         spatial <- spatialAtRisk(list(X=seq(xyt$window$xrange[1],xyt$window$xrange[2],length.out=M),Y=seq(xyt$window$yrange[1],xyt$window$yrange[2],length.out=N),Zm=matrix(1,M,N)))
     }
     else{
-        if(!any(class(spatial.offset)=="spatialAtRisk")){
+        if(!inherits(spatial.offset,"spatialAtRisk")){
             spatial <- spatialAtRisk(spatial.offset)
         }
         else{
@@ -838,10 +838,10 @@ lgcpSimSpatialCovariates <- function(   formula,
         }
     }
 
-    if(any(class(spatial)=="fromXYZ")){
+    if(inherits(spatial,"fromXYZ")){
         spatial$Zm <- spatial$Zm*attr(spatial,"NC") # put back in 'normalising constant' so that spatialAtRisk acts as an offset (ie it no longer integrates to 1 over the study region.)
     }
-    if(any(class(spatial)=="fromSPDF")){
+    if(inherits(spatial,"fromSPDF")){
         spatial$atrisk <- spatial$atrisk*attr(spatial,"NC")
         spatial$spdf$atrisk <- spatial$atrisk
     }

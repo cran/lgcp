@@ -45,12 +45,37 @@ d.func <- function(mat1il,mat2jk,i,j,l,k){
 ##' @param additionalparameters vector of additional parameters for certain classes of covariance function (eg Matern), these must be supplied in the order given in ?CovarianceFct
 ##' @return this is just a wrapper for CovarianceFct
 gu <- function(u,sigma,phi,model,additionalparameters){
-        return(CovarianceFct(x=u,param=c(mean=0,variance=sigma^2,nugget=0,scale=phi,additionalparameters),model=model))
-
+    if(model=="exponential"){
+        return(sigma^2*exp(-u/phi))
+    }
+    else{
+        stop("Functionality is temporarily unavailable due to deprecation of RandomFields package. Model 'exponential' is still available")
+    }
+        #return(CovarianceFct(x=u,param=c(mean=0,variance=sigma^2,nugget=0,scale=phi,additionalparameters),model=model))
 }
 
 
+##' CovarianceFct function
+##'
+##' A function to
+##'
+##' @param u distance
+##' @param sigma parameter sigma
+##' @param phi parameter phi
+##' @param model character string, the model
+##' @param additionalparameters additional parameters for the covariance function that will be fixed.
+##' @return the covariance function evaluated at the specified distances
+##' @export
 
+CovarianceFct = function(u,sigma,phi,model,additionalparameters){
+    #param has form c(mean=0,variance=sigma^2,nugget=0,scale=phi,additionalparameters)
+    if(model=="exponential"){
+        return(sigma^2*exp(-u/phi))
+    }
+    else{
+        stop("Functionality is temporarily unavailable due to deprecation of RandomFields package. Model 'exponential' is still available")
+    }
+}
 
 
 
@@ -59,7 +84,7 @@ gu <- function(u,sigma,phi,model,additionalparameters){
 ##' lgcpPredictSpatialINLA function
 ##'
 ##' -------------------------------------------------------
-##' !IMPORTANT! after library(lgcp) this will be a dummy function. 
+##' !IMPORTANT! after library(lgcp) this will be a dummy function.
 ##' In order to use, type getlgcpPredictSpatialINLA() at the console. This will download and install the true function.
 ##' -------------------------------------------------------
 ##'
@@ -67,18 +92,18 @@ gu <- function(u,sigma,phi,model,additionalparameters){
 ##'
 ##' The following is a mathematical description of a log-Gaussian Cox Process, it is best viewed in the pdf version of the manual.
 ##'
-##' Let \eqn{\mathcal Y(s)}{\mathcal Y(s)} be a spatial Gaussian process and \eqn{W\subset R^2}{W\subset R^2} be an 
-##' observation window in space. 
-##' Cases occur at spatial positions \eqn{x \in W}{x \in W} 
+##' Let \eqn{\mathcal Y(s)}{\mathcal Y(s)} be a spatial Gaussian process and \eqn{W\subset R^2}{W\subset R^2} be an
+##' observation window in space.
+##' Cases occur at spatial positions \eqn{x \in W}{x \in W}
 ##'  according to an inhomogeneous spatial Cox process,
 ##' i.e. a Poisson process with a stochastic intensity \eqn{R(x)}{R(x)},
-##'   The number of cases, \eqn{X_{S}}{X_{S}}, arising in 
-##'   any \eqn{S \subseteq W}{S \subseteq W} is 
+##'   The number of cases, \eqn{X_{S}}{X_{S}}, arising in
+##'   any \eqn{S \subseteq W}{S \subseteq W} is
 ##'   then Poisson distributed conditional on \eqn{R(\cdot)}{R(\cdot)},
 ##' \deqn{X_{S} \sim \mbox{Poisson}\left\{\int_S R(s)ds\right\}}{X_{S} \sim \mbox{Poisson}\left\{\int_S R(s)ds\right\}.}
 ##' Following Brix and Diggle (2001) and Diggle et al (2005) (but ignoring temporal variation), the intensity is decomposed multiplicatively as
 ##' \deqn{R(s,t) = \lambda(s)\exp\{\mathcal Y(s,t)\}.}{R(s,t) = \lambda(s)Exp\{\mathcal Y(s,t)\}.}
-##' In the above, the fixed spatial component, \eqn{\lambda:R^2\mapsto R_{\geq 0}}{\lambda:R^2\mapsto R_{\geq 0}}, 
+##' In the above, the fixed spatial component, \eqn{\lambda:R^2\mapsto R_{\geq 0}}{\lambda:R^2\mapsto R_{\geq 0}},
 ##' is a known function, proportional to the population at risk at each point in space and scaled so that
 ##' \deqn{\int_W\lambda(s)d s=1.}{\int_W\lambda(s)d s=1.}
 ##'
@@ -90,7 +115,7 @@ gu <- function(u,sigma,phi,model,additionalparameters){
 ##' @param sd a spatial point pattern object, see ?ppp
 ##' @param ns size of neighbourhood to use for GMRF approximation ns=1 corresponds to 3^2-1=8 eight neighbours around each point, ns=2 corresponds to 5^2-1=24 neighbours etc ...
 ##' @param model.parameters values for parameters, see ?lgcppars
-##' @param spatial.covmodel correlation type see ?CovarianceFct 
+##' @param spatial.covmodel correlation type see ?CovarianceFct
 ##' @param covpars vector of additional parameters for certain classes of covariance function (eg Matern), these must be supplied in the order given in ?CovarianceFct
 ##' @param cellwidth width of grid cells on which to do MALA (grid cells are square). Note EITHER gridsize OR cellwidthe must be specified.
 ##' @param gridsize size of output grid required. Note EITHER gridsize OR cellwidthe must be specified.
@@ -100,9 +125,9 @@ gu <- function(u,sigma,phi,model,additionalparameters){
 ##' @param inlaverbose loogical whether to print the inla fitting procedure to the console
 ##' @param generic0hyper optional hyperparameter list specification for "generic0" INLA model. default is list(theta=list(initial=0,fixed=TRUE)), which effectively treats the precision matrix as known.
 ##' @param strategy inla strategy
-##' @param method optimisation method to be used in function matchcovariance, default is "Nelder-Mead". See ?matchcovariance 
+##' @param method optimisation method to be used in function matchcovariance, default is "Nelder-Mead". See ?matchcovariance
 ##' @return the results of fitting the model in an object of class \code{lgcpPredict}
-##' @references 
+##' @references
 ##' \enumerate{
 ##'     \item Benjamin M. Taylor, Tilman M. Davies, Barry S. Rowlingson, Peter J. Diggle (2013). Journal of Statistical Software, 52(4), 1-40. URL http://www.jstatsoft.org/v52/i04/
 ##'     \item Brix A, Diggle PJ (2001). Spatiotemporal Prediction for log-Gaussian Cox processes. Journal of the Royal Statistical Society, Series B, 63(4), 823-841.
@@ -110,15 +135,15 @@ gu <- function(u,sigma,phi,model,additionalparameters){
 ##'     \item Wood ATA, Chan G (1994). Simulation of Stationary Gaussian Processes in [0,1]d. Journal of Computational and Graphical Statistics, 3(4), 409-432.
 ##'     \item Moller J, Syversveen AR, Waagepetersen RP (1998). Log Gaussian Cox Processes. Scandinavian Journal of Statistics, 25(3), 451-482.
 ##' }
-##' @seealso \link{lgcpPredict} \link{KinhomAverage}, \link{ginhomAverage}, \link{lambdaEst}, \link{muEst}, \link{spatialparsEst}, \link{thetaEst},  
-##' \link{spatialAtRisk}, \link{temporalAtRisk}, \link{lgcppars}, \link{CovarianceFct}, \link{mcmcpars}, \link{setoutput} 
+##' @seealso \link{lgcpPredict} \link{KinhomAverage}, \link{ginhomAverage}, \link{lambdaEst}, \link{muEst}, \link{spatialparsEst}, \link{thetaEst},
+##' \link{spatialAtRisk}, \link{temporalAtRisk}, \link{lgcppars}, \link{CovarianceFct}, \link{mcmcpars}, \link{setoutput}
 ##' \link{print.lgcpPredict}, \link{xvals.lgcpPredict}, \link{yvals.lgcpPredict}, \link{plot.lgcpPredict}, \link{meanfield.lgcpPredict},
-##' \link{rr.lgcpPredict}, \link{serr.lgcpPredict}, \link{intens.lgcpPredict},   
+##' \link{rr.lgcpPredict}, \link{serr.lgcpPredict}, \link{intens.lgcpPredict},
 ##' \link{varfield.lgcpPredict}, \link{gridfun.lgcpPredict}, \link{gridav.lgcpPredict}, \link{hvals.lgcpPredict}, \link{window.lgcpPredict},
 ##' \link{mcmctrace.lgcpPredict}, \link{plotExceed.lgcpPredict}, \link{quantile.lgcpPredict}, \link{identify.lgcpPredict}, \link{expectation.lgcpPredict},
 ##' \link{extract.lgcpPredict}, \link{showGrid.lgcpPredict},
-##' @export 
-    
+##' @export
+
 lgcpPredictSpatialINLA <- function( sd,
                                     ns,
             					    model.parameters=lgcppars(),
@@ -126,7 +151,7 @@ lgcpPredictSpatialINLA <- function( sd,
             					    covpars=c(),
             					    cellwidth=NULL,
             					    gridsize=NULL,
-            					    spatial.intensity,				
+            					    spatial.intensity,
             					    ext=2,
             					    optimverbose=FALSE,
             					    inlaverbose=TRUE,
@@ -141,5 +166,3 @@ lgcpPredictSpatialINLA <- function( sd,
     # note this is a dummy function. In order to use, type getlgcpPredictSpatialINLA() at the console.
 
 }
-
-            					    

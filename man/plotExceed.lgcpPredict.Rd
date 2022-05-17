@@ -42,8 +42,8 @@ Function for plotting exceedance probabilities stored in \code{lgcpPredict} ojec
 \dontrun{exceedfun <- exceedProbs(c(1.5,2,4))}
 \dontrun{
     plot(lg,"exceedfun") # lg is an object of class lgcpPredict
-                         # in which the Monte Carlo mean of 
-                         # "exceedfun" was computed  
+                         # in which the Monte Carlo mean of
+                         # "exceedfun" was computed
                          # see ?MonteCarloAverage and ?setoutput
 }
 }

@@ -34,7 +34,7 @@ A function to perform polygon/polygon overlay operations and form the computatio
 For details and examples of using this fucntion, please see the package vignette "Bayesian_lgcp"
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{guessinterp}, \link{getZmat},
+\link{chooseCellwidth}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

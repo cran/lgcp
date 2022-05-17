@@ -53,7 +53,7 @@ genFFTgrid <- function(study.region,M,N,ext,inclusion="touching"){
 ##' @param CovParameters an object of class CovParamters, see ?CovParameters
 ##' @param inverse logical. Whether to return the base matrix of the inverse covariance matrix (ie the base matrix for the precision matrix), default is FALSE
 ##' @return the base matrix of a block circulant matrix representing a stationary covariance function on a toral grid.
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits},
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -92,13 +92,13 @@ GPrealisation <- function(gamma,fftgrid,covFunction,covParameters,d){
     if(!inherits(gamma,"matrix")){
         stop("argument 'gamma' must be a matrix")
     }
-    if(class(fftgrid)!="FFTgrid"){
+    if(!inherits(fftgrid,"FFTgrid")){
         stop("argument 'fftgrid' must be an object of class FFTgrid, see ?genFFTgrid")
     }
-    if(!any(class(covFunction)=="CovFunction")){
+    if(!inherits(covFunction,"CovFunction")){
         stop("argument 'covFunction' must be an object of class CovFunction")
     }
-    if(class(covParameters)!="CovParamaters"){
+    if(!inherits(covParameters,"CovParamaters")){
         stop("argument 'covParamaters' must be an object of class CovParamaters, see ?CovParamaters")
     }
 
@@ -143,16 +143,16 @@ GPrealisation <- function(gamma,fftgrid,covFunction,covParameters,d){
 
 
 stGPrealisation <- function(gamma,fftgrid,covFunction,covParameters,d,tdiff){
-    if(class(gamma)!="list"){
+    if(!inherits(gamma,"list")){
         stop("argument 'gamma' must be a list")
     }
-    if(class(fftgrid)!="FFTgrid"){
+    if(!inherits(fftgrid,"FFTgrid")){
         stop("argument 'fftgrid' must be an object of class FFTgrid, see ?genFFTgrid")
     }
-    if(!any(class(covFunction)=="CovFunction")){
+    if(!inherits(covFunction,"CovFunction")){
         stop("argument 'covFunction' must be an object of class CovFunction")
     }
-    if(class(covParameters)!="CovParamaters"){
+    if(!inherits(covParameters,"CovParamaters")){
         stop("argument 'covParamaters' must be an object of class CovParamaters, see ?CovParamaters")
     }
 
@@ -510,7 +510,7 @@ GaussianPrior <- function(mean,variance){
 ##' @param etaprior an object of class PriorSpec defining the prior for the parameters of the latent field, eta. See ?PriorSpec.list.
 ##' @param betaprior etaprior an object of class PriorSpec defining the prior for the parameters of main effects, beta. See ?PriorSpec.list.
 ##' @return an R structure representing the prior density ready for a run of the MCMC algorithm.
-##' @seealso \link{GaussianPrior}, \link{LogGaussianPrior}, \link{PriorSpec.list}, \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{GaussianPrior}, \link{LogGaussianPrior}, \link{PriorSpec.list}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -780,11 +780,11 @@ BetaParameters <- function(beta){
 
 EvaluatePrior <- function(etaParameters,betaParameters,prior){
     if(!is.null(betaParameters)){
-        if(class(betaParameters)!="BetaParameters"){
+        if(!inherits(betaParameters,"BetaParameters")){
             stop("betaParameters must be an object of class BetaParameters")
         }
     }
-    if(class(prior)!="lgcpPrior"){
+    if(!inherits(prior,"lgcpPrior")){
         stop("prior must be an object of class lgcpPrior")
     }
 
@@ -816,7 +816,7 @@ EvaluatePrior <- function(etaParameters,betaParameters,prior){
 ##' @param etainit a vector, the initial value of eta to use
 ##' @param betainit a vector, the initial value of beta to use, this vector must have names the same as the variable names in the formula in use, and in the same order.
 ##' @return an object of class lgcpInits used in the MCMC routine.
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{CovFunction},
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -860,11 +860,11 @@ GPlist2array <- function(GPlist,element){
 ##' @export
 
 formulaList <- function(X){
-    if(class(X)!="list"){
+    if(!inherits(X,"list")){
         stop("X must be a list object, each element bing of class 'formula'")
     }
     for(i in 1:length(X)){
-        if(class(X[[i]])!="formula"){
+        if(!inherits(X[[i]],"formula")){
             stop("Each element of X must be of class formula")
         }
     }
@@ -1024,15 +1024,15 @@ samplePosterior <- function(x){
 ##' @export
 
 plotit <- function(x){
-    if(class(x)=="list"){
+    if(inherits(x,"list")){
         lapply(x,function(x){image.plot(x);browser()})
         return()
     }
-    if(class(x)=="matrix"){
+    if(inherits(x,"matrix")){
         image.plot(x)
         return()
     }
-    if(class(x)=="GPrealisation"){
+    if(inherits(x,"GPrealisation")){
         image.plot(x$mcens,x$ncens,x$Y)
     }
 }
@@ -1211,7 +1211,7 @@ gOverlay <- function(grid,spdf){
 ##' @param inclusion criterion for cells being included into observation window. Either 'touching' or 'centroid'. The former, the default, includes all cells that touch the observation window, the latter includes all cells whose centroids are inside the observation window.
 ##' @param overl an object of class "lgcppolyol", created by the function getpolyol. Such an object contains the FFT grid and a polygon/polygon overlay and speeds up computation massively.
 ##' @return a design matrix for passing on to the Bayesian MCMC functions
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -1272,7 +1272,7 @@ getZmat <- function(formula,data,regionalcovariates=NULL,pixelcovariates=NULL,ce
 ##' @param obj an object of class ppp, stppp, SpatialPolygonsDataFrame, or owin
 ##' @param cwinit the cell width
 ##' @return produces a plot of the observation window and computational grid.
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -2435,7 +2435,7 @@ segProbs <- function(obj,domprob){
 ##' @param tdata a data frame with variable t minimally including times (T-laglength):T and var1, var2 etc.
 ##' @param Zmat the spatial covariates Z(s), obtained by using the getZmat function.
 ##' @return A list of design matrices, one for each time, Z(s,t) for t in (T-laglength):T
-##' @seealso \link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+##' @seealso \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 ##' \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 ##' \link{lgcpPredictMultitypeSpatialPlusPars}

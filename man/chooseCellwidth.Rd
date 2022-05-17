@@ -23,7 +23,7 @@ Ideally this function should be used after having made a preliminary guess at th
 several times, adjusting the parameter "cwinit" so as to balance available computational resources with output grid size.
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+\link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

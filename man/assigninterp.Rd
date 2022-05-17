@@ -38,7 +38,7 @@ The three types of interpolation method employed in the package lgcp are:\cr
 \dontrun{spdf@data <- assigninterp(df=spdf@data,vars="pop",value="ArealWeightedSum")}
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, \link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+\link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars}

@@ -19,6 +19,6 @@
 the expectated value of that function
 }
 \description{
-\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. This function computes the 
+\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. This function computes the
 Monte Carlo Average of a function where data from a run of \code{lgcpPredict} has been dumped to disk.
 }

@@ -17,7 +17,7 @@
 plots the saved MCMC chains
 }
 \description{
-The command \code{plot(trace(lg))}, where \code{lg} is an object of class \code{lgcpPredict} will plot the 
+The command \code{plot(trace(lg))}, where \code{lg} is an object of class \code{lgcpPredict} will plot the
 mcmc traces of a subset of the cells, provided they have been stored, see \code{mcmpars}.
 }
 \seealso{

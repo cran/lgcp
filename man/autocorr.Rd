@@ -30,7 +30,7 @@ autocorr(
 an array, the [,,i]th slice being the grid of cell-wise autocorrelations.
 }
 \description{
-\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. The routine \code{autocorr.lgcpPredict} 
+\bold{This function requires data to have been dumped to disk}: see \code{?dump2dir} and \code{?setoutput}. The routine \code{autocorr.lgcpPredict}
 computes cellwise selected autocorrelations of Y.
 Since computing the quantiles is an expensive operation, the option to output the quantiles on a subregion of interest is also provided (by
 setting the argument \code{inWindow}, which has a sensible default).

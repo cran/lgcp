@@ -15,7 +15,7 @@
 returns the values of h taken during the progress of the algorithm
 }
 \description{
-Accessor function returning the value of \eqn{h}{h}, the MALA proposal scaling constant over the iterations of the algorithm for 
+Accessor function returning the value of \eqn{h}{h}, the MALA proposal scaling constant over the iterations of the algorithm for
 objects of class \code{lgcpPredict}
 }
 \seealso{

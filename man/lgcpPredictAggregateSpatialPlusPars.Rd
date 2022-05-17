@@ -117,7 +117,7 @@ We recommend the user takes the following steps before running this method:
 }
 }
 \seealso{
-\link{minimum.contrast}, \link{minimum.contrast.spatiotemporal}, link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars},  \link{lgcpPredictSpatioTemporalPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars},
