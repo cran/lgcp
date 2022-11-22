@@ -2,7 +2,7 @@
 # REDUNDANT cat("CANNOT TEST LGCPMETHODS ...\n")
 
 library(lgcp)
-library(spatstat.core)
+library(spatstat.explore)
 library(spatstat.utils)
 library(sp)
 library(raster)

@@ -6,5 +6,5 @@
 \usage{data(wpopdata)}
 \format{matrix}
 \source{ONS}
-\references{\url{http://www.statistics.gov.uk/default.asp}}
+\references{http://www.statistics.gov.uk/default.asp}
 \keyword{datasets}

@@ -48,8 +48,14 @@ gu <- function(u,sigma,phi,model,additionalparameters){
     if(model=="exponential"){
         return(sigma^2*exp(-u/phi))
     }
+    else if(model=="Matern32"){
+        return(sigma^2*(1+sqrt(3)*u/phi)*exp(-sqrt(3)*u/phi))
+    }
+    else if(model=="Matern52"){
+        return(sigma^2*(1+sqrt(5)*u/phi+5*u^2/(3*phi^2))*exp(-sqrt(5)*u/phi))
+    }
     else{
-        stop("Functionality is temporarily unavailable due to deprecation of RandomFields package. Model 'exponential' is still available")
+        stop("Functionality is temporarily unavailable due to deprecation of RandomFields package. Models: 'exponential', 'Matern32' and 'Matern52' are currently available")
     }
         #return(CovarianceFct(x=u,param=c(mean=0,variance=sigma^2,nugget=0,scale=phi,additionalparameters),model=model))
 }
