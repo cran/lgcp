@@ -1091,6 +1091,23 @@ tempRaster <- function(mcens,ncens){
     return(raster(nrows=M,ncols=N,xmn=mcens[1]-dx/2,xmx=mcens[M]+dx/2,ymn=ncens[1]-dy/2,ymx=ncens[N]+dy/2))
 }
 
+##' gIntersects_pg function
+##'
+##' A function to 
+##'
+##' @param spdf X 
+##' @param grid X 
+##' @return ...
+##' @export
+
+gIntersects_pg = function(spdf,grid){
+    out = matrix(FALSE,nrow(grid),nrow(spdf))
+    idx = st_intersects(grid,spdf)
+    sapply(1:length(idx),function(i){out[i,][idx[[i]]] <<- TRUE})
+    return(out)
+}
+
+
 ##' gOverlay function
 ##'
 ##' A function to overlay the FFT grid, a SpatialPolygons object, onto a SpatialPolygonsDataFrame object.
@@ -1105,7 +1122,9 @@ tempRaster <- function(mcens,ncens){
 
 
 gOverlay <- function(grid,spdf){
-    int <- gIntersects(spdf,grid,byid=TRUE)
+    grid = st_as_sf(grid)
+    spdf = st_as_sf(spdf)
+    int <- gIntersects_pg(spdf,grid)
     cnt <- 0
     idx <- c()
     cellnum <- 0
@@ -1116,14 +1135,15 @@ gOverlay <- function(grid,spdf){
             cellnum <- cellnum + 1
             if(int[i,j]){
                 cnt <- cnt + 1
-                vec <- try(gIntersection(grid[i,],spdf[j,], byid=TRUE),silent=TRUE)
+                vec_st <- try(st_intersection(grid[i,],spdf[j,]),silent=TRUE)
+                vec = try(as(vec_st,"Spatial"),silent=TRUE)
                 if(inherits(vec,"try-error")|inherits(vec,"SpatialPoints")|inherits(vec,"SpatialLines")|inherits(vec,"SpatialCollections")){
                     cnt <- cnt - 1
                     not_intersect <- rbind(not_intersect,c(i,j))
                 }
                 else{
                     #print(c(i,j))
-                    idx <- rbind(idx,c(i,j,sum(sapply(slot(vec,"polygons"),slot,"area"))))
+                    idx <- rbind(idx,c(i,j,sum(st_area(vec_st))))
                 }
             }
             setTxtProgressBar(pb,cellnum)
@@ -1223,9 +1243,10 @@ getZmat <- function(formula,data,regionalcovariates=NULL,pixelcovariates=NULL,ce
         cellwidth <- overl$cellwidth
         ext <- overl$ext
     }
+    data_sf = try(st_as_sf(data),silent=TRUE)
     if(inherits(data,"SpatialPolygonsDataFrame")){
         spatstat.options(checkpolygons=FALSE)
-        W <- as(gUnaryUnion(data),"owin")
+        W <- as(as(st_union(data_sf),"Spatial"),"owin")
         spatstat.options(checkpolygons=TRUE)
         sd <- ppp(window=W)
     }
@@ -1279,10 +1300,10 @@ getZmat <- function(formula,data,regionalcovariates=NULL,pixelcovariates=NULL,ce
 ##' @export
 
 chooseCellwidth <- function(obj,cwinit){
-
+    obj_sf = try(st_as_sf(obj),silent=TRUE)
     if(inherits(obj,"SpatialPolygons")){
         spatstat.options(checkpolygons=FALSE)
-        W <- as(gUnaryUnion(obj),"owin")
+        W <- as(as(st_union(obj_sf),"Spatial"),"owin")
         spatstat.options(checkpolygons=TRUE)
     }
     else if(inherits(obj,"ppp") | inherits(obj,"stppp")){

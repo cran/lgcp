@@ -317,9 +317,10 @@ cov.interp.fft <- function(formula,W,regionalcovariates=NULL,pixelcovariates=NUL
 ##' @export
 
 getpolyol <- function(data,regionalcovariates=NULL,pixelcovariates=NULL,cellwidth,ext=2,inclusion="touching"){
+    data_sf = try(st_as_sf(data),silent=TRUE)
     if(inherits(data,"SpatialPolygonsDataFrame")){
         spatstat.options(checkpolygons=FALSE)
-        W <- as(gUnaryUnion(data),"owin")
+        W <- as(as(st_union(data_sf),"Spatial"),"owin")
         spatstat.options(checkpolygons=TRUE)
         sd <- ppp(window=W)
     }

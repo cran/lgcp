@@ -107,8 +107,11 @@ lgcpPredictAggregateSpatialPlusPars <- function( formula,
         ol <- gOverlay(fftpoly,spdf)
     }
 
+    spdf_st = st_as_sf(spdf)
+    fftpoly_st = st_as_sf(fftpoly)
+
     if(overlapping){
-        olap <- gIntersects(spdf,spdf,byid=TRUE)
+        olap <- gIntersects_pg(spdf_st,spdf_st)
         diag(olap) <- FALSE
         uqgrididx <- unique(ol$info$grididx)
         pb <- txtProgressBar(min=0,max=length(uqgrididx),style=3)
@@ -134,9 +137,13 @@ lgcpPredictAggregateSpatialPlusPars <- function( formula,
                     wt <- spdf$sintens[ol$info$polyidx[widx]]
                 }
                 wt <- wt / sum(wt) # normalise
-                interpoly <- gIntersection(fftpoly[uqgrididx[i],],spdf,byid=TRUE,drop_lower_td=TRUE)
+                #interpoly <- gIntersection(fftpoly[uqgrididx[i],],spdf,byid=TRUE,drop_lower_td=TRUE)
+                interpoly_st = st_intersection(fftpoly_st[uqgrididx[i],],spdf_st,dimension="polygon")
+                interpolyunion_st = st_union(interpoly_st)
+                interpoly = st_as_sf(interpoly_st)
+                interpolyunion = st_as_sf(interpolyunion_st)
                 num2sample <- 10000
-                ptstmp <- spsample(gUnaryUnion(interpoly),num2sample,type="regular") # fftpoly[uqgrididx[i],]
+                ptstmp <- spsample(interpolyunion,num2sample,type="regular") # fftpoly[uqgrididx[i],]
                 ov <- over(ptstmp,geometry(interpoly),returnList=TRUE)
                 idxxx <- sapply(ov,length)==0
                 if(any(idxxx)){
@@ -210,7 +217,7 @@ lgcpPredictAggregateSpatialPlusPars <- function( formula,
     #browser()
 
     spatstat.options(checkpolygons=FALSE)
-    W <- as(gUnaryUnion(spdf),"owin")
+    W <- as(as(st_union(spdf_st),"Spatial"),"owin")
     spatstat.options(checkpolygons=TRUE)
 
     sd <- suppressWarnings(ppp(x=unlist(spts[,1]),y=unlist(spts[,2]),window=W)) # NOTE THIS IS REFINED BELOW

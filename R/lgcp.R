@@ -56,14 +56,15 @@
 ##' @importFrom Matrix sparseMatrix
 ##' @importFrom rpanel rp.block rp.button rp.control rp.radiogroup rp.slider rp.textentry rp.checkbox
 ##' @importFrom tcltk setTkProgressBar tclvalue tkProgressBar tkwinfo tkwm.geometry
-##' @importFrom rgeos gDisjoint gIntersection gIntersects gTouches gUnaryUnion
+## @importFrom rgeos gDisjoint gIntersection gIntersects gTouches gUnaryUnion
 ##' @importFrom ncdf4 nc_open nc_close nc_sync ncvar_get ncdim_def ncvar_def nc_create ncvar_put
-##' @importFrom maptools label
+## @importFrom maptools label
 ##' @importFrom iterators icount iter nextElem
 ##' @importFrom fields image.plot
 ##' @importFrom tcltk setTkProgressBar tclvalue tkProgressBar tkwinfo tkwm.geometry
 ##' @importFrom raster raster disaggregate aggregate resample brick as.data.frame
 ##' @importFrom sp spsample proj4string<- proj4string SpatialPixelsDataFrame SpatialGridDataFrame Polygon Polygons SpatialPolygons coordinates CRS geometry GridTopology over proj4string SpatialGrid SpatialPixels SpatialPoints SpatialPolygonsDataFrame split spTransform
+##' @importFrom sf st_touches st_disjoint st_intersects st_intersection st_as_sf st_union st_area
 ##' @importFrom spatstat.explore density.ppp Kest Kinhom pcf pcfinhom resolve.2D.kernel rmax.rule
 ##' @importFrom spatstat.geom affine affine.ppp area area.owin as.im as.mask as.owin as.polygonal as.ppp as.rectangle convexhull im inside.owin interp.im is.im is.multitype is.polygonal is.ppp is.rectangle marks nearest.raster.point npoints owin pairdist ppp rescale rescale.ppp setminus.owin simplify.owin spatstat.options verifyclass
 ##' @importFrom stats acf approx as.formula C coefficients density deriv df dlnorm dnorm end fft formula Gamma glm lm lowess median model.matrix optim optimise quantile rnorm rpois runif sd start terms vcov window quasipoisson

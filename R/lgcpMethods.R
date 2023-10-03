@@ -2019,6 +2019,39 @@ plot.lgcpAutocorr <- function(x,sel=1:dim(x)[3],ask=TRUE,crop=TRUE,plotwin=FALSE
 }
 
 
+
+##' gDisjoint_wg function
+##'
+##' A function to 
+##'
+##' @param w X 
+##' @param gri X 
+##' @return ...
+##' @export
+
+gDisjoint_wg = function(w,gri){
+    l = as.logical(st_disjoint(gri,w))
+    l[is.na(l)] = FALSE
+    return(l)
+}
+
+
+##' gTouches_wg function
+##'
+##' A function to 
+##'
+##' @param w X 
+##' @param gri X 
+##' @return ...
+##' @export
+
+gTouches_wg = function(w,gri){
+    l = as.logical(st_touches(gri,w))
+    l[is.na(l)] = FALSE
+    return(l)
+}
+
+
 ##' touchingowin function
 ##'
 ##' A function to compute which cells are touching an owin or spatial polygons object
@@ -2031,11 +2064,12 @@ plot.lgcpAutocorr <- function(x,sel=1:dim(x)[3],ask=TRUE,crop=TRUE,plotwin=FALSE
 
 touchingowin <- function(x, y, w){
     if (inherits(w,"owin")){
-        w <- as(w,"SpatialPolygons")
+        w <- st_as_sf(w)
     }
-    gri <- grid2spoly(x,y)
-    int <- !gDisjoint(w,gri,byid=TRUE) & !gTouches(w,gri,byid=TRUE) # cells that have some internal points in common
-    return(apply(int,1,any))
+    gri <- st_as_sf(grid2spoly(x,y))
+    int <- !gDisjoint_wg(w,gri) & !gTouches_wg(w,gri) # cells that have some internal points in common
+    return(int)
+    #return(apply(int,1,any))
 }
 
 
