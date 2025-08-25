@@ -41,9 +41,12 @@
 ###'     \item Moller J, Syversveen AR, Waagepetersen RP (1998). Log Gaussian Cox Processes. Scandinavian Journal of Statistics, 25(3), 451-482.
 ###' }
 ###'
-###' @docType package
-###' @name lgcp-package
-###' @author Benjamin Taylor, Health and Medicine, Lancaster University,
+### @docType package
+### @name lgcp-package
+#' @keywords internal
+"_PACKAGE"
+###' @aliases lgcp-package NULL
+###' @author Benjamin Taylor, School of Mathematical Sciences, University College Cork,
 ###'  Tilman Davies, Institute of Fundamental Sciences - Statistics, Massey University, New Zealand.,
 ###'  Barry Rowlingson, Health and Medicine, Lancaster University
 ###'  Peter Diggle, Health and Medicine, Lancaster University

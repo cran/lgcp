@@ -326,7 +326,7 @@
 # ##' @param verbose Boolean. Whether or not to print function progress.
 # ##' @param ... Additional arguments to be passed to 'param' in evaluation of 'CovarianceFct' (need dependent upon 'model').
 # ##' @return Returned values are the minimum contrast estimates of phi and sigma^2, as well as the overall squared discrepancy between the parametric and nonparametric forms of the function used corresponding to these estimates. (This can be useful in deciding between several different theoretical forms of the correlation specified by 'model'). If the point pattern is multitype, each pair of parameters is estimated independently for each marginal (type-specific) data set.
-# ##' @seealso \link{minimum.contrast.spatiotemporal}, link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+# ##' @seealso \link{minimum.contrast.spatiotemporal}, \link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 # ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 # ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 # ##' \link{lgcpPredictMultitypeSpatialPlusPars}
@@ -523,7 +523,7 @@
 # ##' @param verbose Boolean. Whether or not to print function progress.
 # ##' @param ... Additional arguments to be passed to 'param' in evaluation of 'CovarianceFct' (need dependent upon 'model').
 # ##' @return Returned values are the minimum contrast estimates of phi, sigma^2 and theta, as well as the overall squared discrepancy between the parametric and nonparametric forms of the spatial function used corresponding to these estimates. (This can be useful in deciding between several different theoretical forms of the spatial correlation specified by 'model').
-# ##' @seealso \link{minimum.contrast}, link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+# ##' @seealso \link{minimum.contrast}, \link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 # ##' \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 # ##' \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars}, \link{lgcpPredictSpatioTemporalPlusPars},
 # ##' \link{lgcpPredictMultitypeSpatialPlusPars}

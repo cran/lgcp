@@ -8,7 +8,7 @@
 ##'
 ##' A generic to be used for the purpose of user-defined adaptive MCMC schemes,
 ##' initialiseAMCMC tells the MALA algorithm which value of h to use first. See
-##' lgcp vignette, code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
+##' lgcp vignette, \code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
 ##'
 ##' @param obj an object    
 ##' @param ... additional arguments  
@@ -26,7 +26,7 @@ initialiseAMCMC <- function(obj,...){
 ##'
 ##' A generic to be used for the purpose of user-defined adaptive MCMC schemes,
 ##' updateAMCMC tells the MALA algorithm how to update the value of h. See
-##' lgcp vignette, code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
+##' lgcp vignette, \code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
 ##'
 ##' @param obj an object    
 ##' @param ... additional arguments  

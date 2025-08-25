@@ -125,7 +125,7 @@ The user must provide a list of design matrices to use this function. In the int
 }
 }
 \seealso{
-link{chooseCellWidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
+\link{chooseCellwidth}, \link{getpolyol}, \link{guessinterp}, \link{getZmat},
 \link{addTemporalCovariates}, \link{lgcpPrior}, \link{lgcpInits}, \link{CovFunction}
 \link{lgcpPredictSpatialPlusPars}, \link{lgcpPredictAggregateSpatialPlusPars},
 \link{lgcpPredictMultitypeSpatialPlusPars},

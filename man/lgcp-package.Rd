@@ -2,15 +2,9 @@
 % Please edit documentation in R/lgcp.R
 \docType{package}
 \name{lgcp-package}
-\alias{lgcp-package}
 \alias{lgcp}
+\alias{lgcp-package}
 \title{lgcp}
-\format{
-An object of class \code{logical} of length 1.
-}
-\usage{
-lgcp
-}
 \description{
 An R package for spatiotemporal prediction and forecasting for log-Gaussian Cox processes.
 }
@@ -55,9 +49,20 @@ To see how to cite \code{lgcp}, type \code{citation("lgcp")} at the console.
 }
 }
 \author{
-Benjamin Taylor, Health and Medicine, Lancaster University,
- Tilman Davies, Institute of Fundamental Sciences - Statistics, Massey University, New Zealand.,
- Barry Rowlingson, Health and Medicine, Lancaster University
- Peter Diggle, Health and Medicine, Lancaster University
+\strong{Maintainer}: Benjamin M. Taylor \email{benjamin.taylor.software@gmail.com}
+
+Authors:
+\itemize{
+  \item Tilman M. Davies
+  \item Barry S. Rowlingson
+  \item Peter J. Diggle
 }
-\keyword{package}
+
+Other contributors:
+\itemize{
+  \item Edzer Pebesma [contributor]
+  \item Dominic Schumacher. [contributor]
+}
+
+}
+\keyword{internal}

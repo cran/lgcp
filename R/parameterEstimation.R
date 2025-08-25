@@ -717,14 +717,14 @@ muEst <- function(xyt,...){
 
 ##' density.stppp function
 ##'
-##' A wrapper function for \link{density.ppp}.
+##' A wrapper function for \link[spatstat.explore]{density.ppp}.
 ##'
 ##' @method density stppp
 ##' @param x an stppp object
 ##' @param bandwidth 'bandwidth' parameter, equivanent to parameter sigma in ?density.ppp ie standard deviation of isotropic Gaussian smoothing kernel.
 ##' @param ... additional arguments to be passed to density.ppp
 ##' @return bivariate density estimate of xyt; not this is a wrapper function for density.ppp
-##' @seealso \link{density.ppp}
+##' @seealso \link[spatstat.explore]{density.ppp}
 ##' @export
 
 density.stppp <- function(x,bandwidth=NULL,...){

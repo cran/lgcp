@@ -27,5 +27,5 @@ Creates a spatialAtRisk object from a list of X, Y, Zm giving respectively the x
 so that Zm[i,j] is proportional to the at-risk population at X[i], Y[j].
 }
 \seealso{
-\link{lgcpPredict}, link{lgcpSim}, \link{spatialAtRisk.default}, \link{spatialAtRisk.im}, \link{spatialAtRisk.function}, \link{spatialAtRisk.SpatialGridDataFrame}, \link{spatialAtRisk.SpatialPolygonsDataFrame}, \link{spatialAtRisk.bivden}
+\link{lgcpPredict}, \link{lgcpSim}, \link{spatialAtRisk.default}, \link{spatialAtRisk.im}, \link{spatialAtRisk.function}, \link{spatialAtRisk.SpatialGridDataFrame}, \link{spatialAtRisk.SpatialPolygonsDataFrame}, \link{spatialAtRisk.bivden}
 }

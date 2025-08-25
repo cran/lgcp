@@ -21,5 +21,5 @@ A function to create a Gaussian prior on the log scale
 \dontrun{LogGaussianPrior(mean=log(c(1,500)),variance=diag(0.15,2))}
 }
 \seealso{
-\link{GaussianPrior}, link{PriorSpec.list}
+\link{GaussianPrior}, \link{PriorSpec.list}
 }

@@ -17,7 +17,7 @@ method intialiseAMCMC
 \description{
 A generic to be used for the purpose of user-defined adaptive MCMC schemes,
 initialiseAMCMC tells the MALA algorithm which value of h to use first. See
-lgcp vignette, code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
+lgcp vignette, \code{vignette("lgcp")}, for further details on writing adaptive MCMC schemes.
 }
 \seealso{
 \link{initialiseAMCMC.constanth}, \link{initialiseAMCMC.andrieuthomsh}

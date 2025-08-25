@@ -23,5 +23,5 @@ The default method for creating a spatialAtRisk object, which attempts to extrac
 \code{yvals} and \code{zvals}.
 }
 \seealso{
-\link{lgcpPredict}, link{lgcpSim}, \link{spatialAtRisk.fromXYZ}, \link{spatialAtRisk.im}, \link{spatialAtRisk.function}, \link{spatialAtRisk.SpatialGridDataFrame}, \link{spatialAtRisk.SpatialPolygonsDataFrame}, \link{spatialAtRisk.bivden}, \code{xvals}, \code{yvals}, \code{zvals}
+\link{lgcpPredict}, \link{lgcpSim}, \link{spatialAtRisk.fromXYZ}, \link{spatialAtRisk.im}, \link{spatialAtRisk.function}, \link{spatialAtRisk.SpatialGridDataFrame}, \link{spatialAtRisk.SpatialPolygonsDataFrame}, \link{spatialAtRisk.bivden}, \code{xvals}, \code{yvals}, \code{zvals}
 }

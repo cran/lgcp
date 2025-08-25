@@ -21,5 +21,5 @@ A function to create a Gaussian prior.
 \dontrun{GaussianPrior(mean=rep(0,9),variance=diag(10^6,9))}
 }
 \seealso{
-\link{LogGaussianPrior}, link{PriorSpec.list}
+\link{LogGaussianPrior}, \link{PriorSpec.list}
 }

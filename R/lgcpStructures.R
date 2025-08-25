@@ -443,7 +443,7 @@ PriorSpec.list <- function(obj,...){
 ##' @param mean a vector of length 2 representing the mean (on the log scale)
 ##' @param variance a 2x2 matrix representing the variance (on the log scale)
 ##' @return an object of class LogGaussianPrior that can be passed to the function PriorSpec.
-##' @seealso \link{GaussianPrior}, link{PriorSpec.list}
+##' @seealso \link{GaussianPrior}, \link{PriorSpec.list}
 ##' @examples
 ##' \dontrun{LogGaussianPrior(mean=log(c(1,500)),variance=diag(0.15,2))}
 ##' @export
@@ -477,7 +477,7 @@ LogGaussianPrior <- function(mean,variance){
 ##' @param mean a vector of length 2 representing the mean.
 ##' @param variance a 2x2 matrix representing the variance.
 ##' @return an object of class LogGaussianPrior that can be passed to the function PriorSpec.
-##' @seealso \link{LogGaussianPrior}, link{PriorSpec.list}
+##' @seealso \link{LogGaussianPrior}, \link{PriorSpec.list}
 ##' @examples
 ##' \dontrun{GaussianPrior(mean=rep(0,9),variance=diag(10^6,9))}
 ##' @export

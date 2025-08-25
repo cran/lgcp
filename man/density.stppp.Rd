@@ -17,8 +17,8 @@
 bivariate density estimate of xyt; not this is a wrapper function for density.ppp
 }
 \description{
-A wrapper function for \link{density.ppp}.
+A wrapper function for \link[spatstat.explore]{density.ppp}.
 }
 \seealso{
-\link{density.ppp}
+\link[spatstat.explore]{density.ppp}
 }
