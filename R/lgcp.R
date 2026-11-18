@@ -57,7 +57,7 @@
 ##' @import spatstat.utils
 ## @importFrom RandomFields CovarianceFct
 ##' @importFrom Matrix sparseMatrix
-##' @importFrom rpanel rp.block rp.button rp.control rp.radiogroup rp.slider rp.textentry rp.checkbox
+## @importFrom rpanel rp.block rp.button rp.control rp.radiogroup rp.slider rp.textentry rp.checkbox
 ##' @importFrom tcltk setTkProgressBar tclvalue tkProgressBar tkwinfo tkwm.geometry
 ## @importFrom rgeos gDisjoint gIntersection gIntersects gTouches gUnaryUnion
 ##' @importFrom ncdf4 nc_open nc_close nc_sync ncvar_get ncdim_def ncvar_def nc_create ncvar_put

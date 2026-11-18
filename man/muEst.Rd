@@ -26,5 +26,5 @@ or (2) a \link{constantInTime} model.
 }
 }
 \seealso{
-\link{temporalAtRisk}, \link{constantInTime}, \link{ginhomAverage}, \link{KinhomAverage}, \link{spatialparsEst}, \link{thetaEst}, \link{lambdaEst}
+\link{temporalAtRisk}, \link{constantInTime}, \link{ginhomAverage}, \link{KinhomAverage}
 }

@@ -53,6 +53,7 @@ To see how to cite \code{lgcp}, type \code{citation("lgcp")} at the console.
 
 Authors:
 \itemize{
+  \item Benjamin M. Taylor \email{benjamin.taylor.software@gmail.com}
   \item Tilman M. Davies
   \item Barry S. Rowlingson
   \item Peter J. Diggle

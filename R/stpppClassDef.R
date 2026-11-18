@@ -132,7 +132,7 @@ plot.stppp <- function(x,...){
 ##' \dontrun{xyt <- lgcpSim()}
 ##' \dontrun{xyt}
 ##' \dontrun{xyt[xyt$t>0.5]}
-
+##' @export 
 
 "[.stppp" <- function(x,subset){
     x$x <- x$x[subset]

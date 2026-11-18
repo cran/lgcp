@@ -26,15 +26,14 @@ Authors@R: c(person(given = c("Benjamin", "M."),
 Description: Spatial and spatio-temporal modelling of point patterns using the
     log-Gaussian Cox process. Bayesian inference for spatial, spatiotemporal,
     multivariate and aggregated point processes using Markov chain Monte Carlo. See Benjamin M. Taylor, Tilman M. Davies, Barry S. Rowlingson, Peter J. Diggle (2015) <doi:10.18637/jss.v063.i07>.
-Version: 2.0-1
-Date: 2025-08-22
+Version: 2.0-2
+Date: 2026-11-18
 Imports: spatstat.geom, spatstat.explore, spatstat.utils, sp, sf,
-        raster, tcltk, iterators, ncdf4, methods, rpanel (>= 1.1-3),
-        fields, Matrix
+        raster, tcltk, iterators, ncdf4, methods, fields, Matrix
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+Config/roxygen2/version: 8.1.0
 NeedsCompilation: no
-Packaged: 2025-08-25 08:02:37 UTC; ben
+Packaged: 2026-11-18 15:29:24 UTC; ben
 Author: Benjamin M. Taylor [aut, cre],
   Tilman M. Davies [aut],
   Barry S. Rowlingson [aut],
@@ -43,4 +42,4 @@ Author: Benjamin M. Taylor [aut, cre],
   Dominic Schumacher. [ctb]
 Depends: R (>= 2.10)
 Repository: CRAN
-Date/Publication: 2025-08-25 08:30:22 UTC
+Date/Publication: 2026-11-18 16:00:02 UTC

@@ -167,6 +167,7 @@ plot.mstppp <- function(x,cols="red",...){
 ##' @param subset subsetto extract
 ##' @usage "x[subset]"
 ##' @return extracts subset of an mstppp object
+##' @export 
 
 
 "[.mstppp" <- function(x,subset){

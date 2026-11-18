@@ -115,7 +115,7 @@ required.
 }
 }
 \seealso{
-\link{KinhomAverage}, \link{ginhomAverage}, \link{lambdaEst}, \link{muEst}, \link{spatialparsEst}, \link{thetaEst},  
+\link{KinhomAverage}, \link{ginhomAverage}, \link{muEst},  
 \link{spatialAtRisk}, \link{temporalAtRisk}, \link{lgcppars}, \link{CovarianceFct}, \link{mcmcpars}, \link{setoutput} 
 \link{print.lgcpPredict}, \link{xvals.lgcpPredict}, \link{yvals.lgcpPredict}, \link{plot.lgcpPredict}, \link{meanfield.lgcpPredict},
 \link{rr.lgcpPredict}, \link{serr.lgcpPredict}, \link{intens.lgcpPredict},   
